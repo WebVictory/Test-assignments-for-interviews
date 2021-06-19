@@ -1,0 +1,22 @@
+def PalindromeSwapper(strParam):
+
+  #Функия проверка строки что она палиндром
+  def chek(str):
+    if str == str[::-1]: # -1 здесь шаг строки: от конца к началу
+      return str #Всё круто это палиндром
+    else:
+      return "-1"
+       
+  x = chek(strParam)
+  if x != "-1":
+    return x
+  #начинаем менять местами
+  y = [strParam[:i]+strParam[i:i+2][::-1]+strParam[i+2:] for i in range(len(strParam)-1)]
+  #проверяем есть ли палиндром
+  for var in y:
+    if (chek(var)) != "-1":
+      return var
+  return('-1')
+
+# keep this function call here 
+print(PalindromeSwapper(input()))
